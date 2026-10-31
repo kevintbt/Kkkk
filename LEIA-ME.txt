@@ -1,0 +1,15 @@
+ENVIO SIMPLES PARA GITHUB (ANDROID)
+
+Este pacote evita precisar selecionar a pasta app no celular.
+Ele contém somente DOIS ARQUIVOS para enviar ao GitHub:
+1) codemagic.yaml
+2) Gestor_Mixshop_Android.zip (contém todas as pastas e arquivos do projeto Android)
+
+COMO ENVIAR
+- Abra a página Upload files do seu repositório GitHub.
+- Escolha estes dois arquivos deste pacote (extraia este ZIP primeiro).
+- Envie ambos para a raiz do repositório e faça Commit changes.
+- Não envie a pasta app separadamente. O Codemagic extrairá o arquivo interno durante a compilação.
+
+Depois, no Codemagic, conecte o repositório e execute o workflow gestor-mixshop-apk.
+O APK esperado estará em Artifacts após uma compilação bem-sucedida.

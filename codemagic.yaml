@@ -1,0 +1,22 @@
+workflows:
+  gestor-mixshop-apk:
+    name: Gestor Mixshop - APK
+    max_build_duration: 60
+    instance_type: linux_x2
+    environment:
+      java: 17
+    scripts:
+      - name: Extrair projeto Android
+        script: |
+          unzip -q Gestor_Mixshop_Android.zip -d .
+      - name: Criar Gradle Wrapper
+        script: |
+          cd Gestor_Mixshop_Android
+          gradle wrapper --gradle-version 8.7
+          chmod +x gradlew
+      - name: Compilar APK
+        script: |
+          cd Gestor_Mixshop_Android
+          ./gradlew --no-daemon assembleDebug
+    artifacts:
+      - Gestor_Mixshop_Android/app/build/outputs/apk/debug/*.apk
